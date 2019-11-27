@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Parse Swift Version
       run: |
-        \[[ `swift -version` =~ ([0-9]+\.[0-9]+(\.[0-9]+)?) ]]
+        [[ `swift -version` =~ ([0-9]+\.[0-9]+(\.[0-9]+)?) ]]
         echo "::set-output name=version::$BASH_REMATCH"
       id: parse_swift_version
     - name: Print Version
