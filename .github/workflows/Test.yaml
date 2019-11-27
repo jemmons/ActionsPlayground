@@ -8,7 +8,8 @@ jobs:
     runs-on: macOS-latest
     
     steps:
-    - name: Print Runner
-      env:
-        RUNNER_STUFF: ${{ toJson(runner) }}
-      run: echo "$RUNNER_STUFF"
+    - name: Parse Swift Version
+      run: "[[ `swift -version` =~ ([0-9]+\.[0-9]+(\.[0-9]+)?) ]]; echo "::set-output name=version::$BASH_REMATCH"
+      id: parse_swift_version
+    - name: Print Version
+      run: echo ${{steps.parse_swift_version.outputs.version}}
