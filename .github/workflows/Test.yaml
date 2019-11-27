@@ -1,0 +1,14 @@
+name: Testing Stuff
+
+on: [push]
+
+jobs: 
+  debug_stuff_i_guess:
+    name: Debug stuff I guess?
+    runs-on: macOS-latest
+    
+    steps:
+    - name: Print Runner
+      env:
+        RUNNER_STUFF: ${{ toJson(runner) }}
+      run: echo "$RUNNER_STUFF"
